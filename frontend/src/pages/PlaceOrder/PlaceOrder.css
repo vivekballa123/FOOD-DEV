@@ -37,6 +37,6 @@
 @media (max-width:700px) {
     .place-order{
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
     }
 }
