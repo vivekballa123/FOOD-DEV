@@ -29,7 +29,7 @@ const Navbar = ({setShowLogin}) => {
       </ul>
       <div className='navbar-right'>
         <div class="search-box">
-          <input type="text" placeholder="Search...">
+          <input type="text" placeholder="Search..." />
           <img src={assets.search_icon} class="search-icon" alt="search" />
         </div>
         <div className='navbar-search-icon'>
