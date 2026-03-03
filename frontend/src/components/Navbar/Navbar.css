@@ -155,8 +155,7 @@
     }
 }
 @media (max-width:1200px) {
-    .search-box input {
+    .search-box{
         display: none;
-        width: 0%;
     }
 }
