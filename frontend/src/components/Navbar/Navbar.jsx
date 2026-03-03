@@ -28,8 +28,14 @@ const Navbar = ({setShowLogin}) => {
         <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu==="contact-us"?"active":""}>contact us</a>
       </ul>
       <div className='navbar-right'>
-        <input type='text' placeholder='search'/>
-        <img src={assets.search_icon} alt="" className="" />
+        <input
+          type="text"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+        />
+        <img src={assets.search_icon} alt="search" className="search-icon" />
         <div className='navbar-search-icon'>
           <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
           <div className={getTotalCartAmount()===0?"":"dot"}></div>
