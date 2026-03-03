@@ -60,13 +60,13 @@
 }
 
 .search-box input {
-  width: 100%;
+  width: 70%;
   padding: 18px 55px 18px 25px; /* space for icon */
   border-radius: 50px;
   border: none;
   outline: none;
   font-size: 18px;
-  background: #f2f2f2;
+  background: #white;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
