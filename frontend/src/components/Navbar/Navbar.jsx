@@ -30,7 +30,7 @@ const Navbar = ({setShowLogin}) => {
       <div className='navbar-right'>
         <div class="search-box">
           <input type="text" placeholder="Search...">
-          <img src={assets.search_icon} class="search-icon" alt="search">
+          <img src={assets.search_icon} class="search-icon" alt="search" />
         </div>
         <div className='navbar-search-icon'>
           <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
