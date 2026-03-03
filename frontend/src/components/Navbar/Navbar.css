@@ -61,6 +61,7 @@
 
 .search-box input {
   width: 70%;
+  display:none;
   padding: 18px 55px 18px 25px; /* space for icon */
   border-radius: 50px;
   border: none;
@@ -152,5 +153,10 @@
 @media (max-width:750px) {
     .navbar-menu{
         display: none;
+    }
+}
+@media (max-width:1200px) {
+    .search-box input {
+        display: flex;
     }
 }
