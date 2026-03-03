@@ -157,5 +157,6 @@
 @media (max-width:1200px) {
     .search-box input {
         display: none;
+        width: 0%;
     }
 }
