@@ -41,6 +41,7 @@
 
 @media (max-width:900px) {
     .my-orders-order{
+        flex-direction: column;
         grid-template-columns:  1fr 2fr 1fr;
         row-gap: 5px;
         font-size: 12px;
