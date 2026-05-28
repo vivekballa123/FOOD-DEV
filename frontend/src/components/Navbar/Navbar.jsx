@@ -40,6 +40,7 @@ const Navbar = ({ setShowLogin, setSearchQuery }) => {
         <a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>contact us</a>
       </ul>
       <div className='navbar-right'>
+<<<<<<< HEAD
         <div className='navbar-search-container'>
           <img
             src={assets.search_icon}
@@ -58,6 +59,11 @@ const Navbar = ({ setShowLogin, setSearchQuery }) => {
               />
             </div>
           )}
+=======
+        <div class="search-box">
+          <input type="text" placeholder="Search..." />
+          <img src={assets.search_icon} class="search-icon" alt="search" />
+>>>>>>> ca6ed842b6c81b92ddff5a9fea8fa0e39104c170
         </div>
         <div className='navbar-search-icon'>
           <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
