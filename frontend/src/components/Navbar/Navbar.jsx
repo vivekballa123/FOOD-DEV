@@ -40,25 +40,7 @@ const Navbar = ({ setShowLogin, setSearchQuery }) => {
         <a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>contact us</a>
       </ul>
       <div className='navbar-right'>
-        <div className='navbar-search-container'>
-          <img
-            src={assets.search_icon}
-            alt="search"
-            className="search-icon-btn"
-            onClick={handleSearchToggle}
-          />
-          {searchOpen && (
-            <div className='navbar-search-input-wrap'>
-              <input
-                type='text'
-                placeholder='Search for dishes...'
-                onChange={handleSearchChange}
-                autoFocus
-                className='navbar-search-input'
-              />
-            </div>
-          )}
-        </div>
+        <img src={assets.search_icon} alt="" className="" />
         <div className='navbar-search-icon'>
           <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>

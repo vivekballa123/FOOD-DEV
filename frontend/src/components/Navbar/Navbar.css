@@ -86,6 +86,7 @@
 .navbar-search-icon{
     position: relative;
 }
+
 .navbar-search-icon .dot{
     position: absolute;
     min-width: 10px;
@@ -94,6 +95,7 @@
     border-radius:5px ;
     top: -8px;
     right: -8px;
+    
 }
 .navbar-profile{
     position: relative;
@@ -170,6 +172,11 @@
 }
 @media (max-width:750px) {
     .navbar-menu{
+        display: none;
+    }
+}
+@media (max-width:1200px) {
+    .search-box{
         display: none;
     }
 }
