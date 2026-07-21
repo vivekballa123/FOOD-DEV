@@ -1,17 +1,24 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
 
-const Navbar = ({ setShowLogin, setSearchQuery }) => {
+const Navbar = ({ setShowLogin, searchQuery, setSearchQuery }) => {
 
   const [menu, setMenu] = useState("menu")
   const [searchOpen, setSearchOpen] = useState(false)
+  const searchInputRef = useRef(null)
 
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext)
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (searchOpen) {
+      searchInputRef.current?.focus()
+    }
+  }, [searchOpen])
 
   const logout = () => {
     localStorage.removeItem("token")
@@ -25,9 +32,18 @@ const Navbar = ({ setShowLogin, setSearchQuery }) => {
 
   const handleSearchToggle = () => {
     setSearchOpen((prev) => {
-      if (prev) setSearchQuery("")  // clear query when closing
+      if (prev) setSearchQuery("")
       return !prev
     })
+  }
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      navigate('/')
+      setMenu('menu')
+      document.getElementById('food-display')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   return (
@@ -40,7 +56,27 @@ const Navbar = ({ setShowLogin, setSearchQuery }) => {
         <a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>contact us</a>
       </ul>
       <div className='navbar-right'>
-        <img src={assets.search_icon} alt="" className="" />
+        <div className='navbar-search-container'>
+          <button type='button' className='search-icon-btn' onClick={handleSearchToggle} aria-label='Search dishes'>
+            <img src={assets.search_icon} alt="" />
+          </button>
+          {searchOpen && (
+            <div className='navbar-search-input-wrap'>
+              <form onSubmit={handleSearchSubmit}>
+                <input
+                  ref={searchInputRef}
+                  className='navbar-search-input'
+                  type='text'
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onKeyDown={(e) => e.key === 'Escape' && handleSearchToggle()}
+                  placeholder='Search dishes'
+                  autoComplete='off'
+                />
+              </form>
+            </div>
+          )}
+        </div>
         <div className='navbar-search-icon'>
           <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
